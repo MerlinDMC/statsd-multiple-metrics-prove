@@ -1,0 +1,18 @@
+---
+
+statsd1:
+  build: statsd
+  ports:
+    - 8125
+
+statsd2:
+  build: statsd
+  ports:
+    - 8125
+
+producer:
+  build: producer
+  links:
+    - statsd1
+    - statsd2
+
